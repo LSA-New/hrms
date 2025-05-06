@@ -412,6 +412,8 @@ def get_total_reimbursed_amount(doc):
 
 
 def get_outstanding_amount_for_claim(claim):
+	precision = frappe.get_precision("Expense Claim", "grand_total")
+
 	if isinstance(claim, str):
 		claim = frappe.db.get_value(
 			"Expense Claim",
@@ -432,7 +434,7 @@ def get_outstanding_amount_for_claim(claim):
 		- flt(claim.total_advance_amount)
 	)
 
-	return outstanding_amt
+	return flt(outstanding_amt, precision)
 
 
 @frappe.whitelist()
@@ -612,12 +614,6 @@ def make_expense_claim_for_delivery_trip(source_name, target_doc=None):
 	)
 
 	return doc
-
-
-# // amke below fucntion reusable basef on wht is passed, if only unclaimed and return_amt is pased, return unclaimed - returne_amt else paid_amount - (claimed_amount + return_amount)
-# @frappe.whitelist()
-# def get_allocation_amount(paid_amount, claimed_amount, return_amount):
-# 	return paid_amount - (claimed_amount + return_amount)
 
 
 @frappe.whitelist()

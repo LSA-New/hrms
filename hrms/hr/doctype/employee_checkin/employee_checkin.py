@@ -26,7 +26,7 @@ class EmployeeCheckin(Document):
 	def validate(self):
 		validate_active_employee(self.employee)
 		self.validate_duplicate_log()
-		self.validate_time_change()
+		#self.validate_time_change()
 		self.fetch_shift()
 		self.set_geolocation()
 		self.validate_distance_from_shift_location()

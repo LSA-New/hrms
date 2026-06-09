@@ -60,7 +60,6 @@
    "fieldtype": "Link",
    "label": "Shift",
    "options": "Shift Type",
-   "read_only": 1,
    "search_index": 1
   },
   {
@@ -177,7 +176,7 @@
   }
  ],
  "links": [],
- "modified": "2025-03-05 15:36:10.014354",
+ "modified": "2026-01-23 13:09:34.116365",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee Checkin",
@@ -272,6 +271,7 @@
    "role": "Employee"
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "ASC",
  "states": [],
